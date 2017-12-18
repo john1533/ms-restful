@@ -23,5 +23,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-api-1.6.4.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-jdk14-1.6.4.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-migrator-1.6.4.jar"/>
+	<classpathentry kind="lib" path="E:/workspace-jee/ms-restful/WebContent/WEB-INF/lib/gson-2.6.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

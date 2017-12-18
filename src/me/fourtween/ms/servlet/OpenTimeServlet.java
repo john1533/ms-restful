@@ -14,20 +14,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import com.mysql.jdbc.StringUtils;
+
 import me.fourtween.ms.utils.DataUtils;
 
 /**
  * Servlet implementation class BreathServlet
  */
 //@WebServlet("/OpenServlet")
-public class OpenServlet extends HttpServlet {
-	public static Logger log = Logger.getLogger(OpenServlet.class);
+public class OpenTimeServlet extends HttpServlet {
+	public static Logger log = Logger.getLogger(OpenTimeServlet.class);
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OpenServlet() {
+    public OpenTimeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,11 +38,26 @@ public class OpenServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//ot?fromM=2017-12&toM=2017-12&compress=true
 		// TODO Auto-generated method stub
 		System.out.println("request content length:"+request.getContentLength());
-		response.getWriter().write(DataUtils.getDailyStr());
-		response.getWriter().flush();
-		response.getWriter().close();
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String fromM = request.getParameter("fromM");
+		String toM = request.getParameter("toM");
+		boolean compress = false;
+		if(!StringUtils.isNullOrEmpty(request.getParameter("compress"))){
+			compress = Boolean.parseBoolean(request.getParameter("compress"));
+		}
+		if(compress){
+			OutputStream out = response.getOutputStream();
+			out.write(DataUtils.getKjtimebytes(fromM, toM));
+			out.flush();
+			out.close();
+		}else{
+			response.getWriter().write(DataUtils.getKjtimeStr(fromM, toM));
+			response.getWriter().flush();
+			response.getWriter().close();
+		}
 		
 	}
 

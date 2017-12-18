@@ -37,7 +37,7 @@ public class ConnectionManager
              */
 
             BoneCPConfig boneCPConfig = new BoneCPConfig();
-            boneCPConfig.setJdbcUrl("jdbc:mysql://localhost:3306/jeesite?useUnicode=true&characterEncoding=UTF-8");
+            boneCPConfig.setJdbcUrl("jdbc:mysql://localhost:3306/marksix?useUnicode=true&characterEncoding=UTF-8");
 
             boneCPConfig.setUsername("root");
             boneCPConfig.setPassword("123456");

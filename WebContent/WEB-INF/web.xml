@@ -14,13 +14,37 @@
     </listener>
     
   <servlet>
-    <servlet-name>BreathServlet</servlet-name>
-    <servlet-class>me.fourtween.restful.servlet.BreathServlet</servlet-class>
+    <servlet-name>OpenHistoryServlet1</servlet-name>
+    <servlet-class>me.fourtween.ms.servlet.OpenHistoryServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>BreathServlet</servlet-name>
-    <url-pattern>/bt</url-pattern>
+    <servlet-name>OpenHistoryServlet1</servlet-name>
+    <url-pattern>/oh</url-pattern>
   </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>OpenTimeServlet</servlet-name>
+    <servlet-class>me.fourtween.ms.servlet.OpenTimeServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>OpenTimeServlet</servlet-name>
+    <url-pattern>/ot</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>OpenServlet</servlet-name>
+    <servlet-class>me.fourtween.ms.servlet.OpenServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>OpenServlet</servlet-name>
+    <url-pattern>/op</url-pattern>
+  </servlet-mapping>
+  
+  
+  
   
 </web-app>
