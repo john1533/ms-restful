@@ -22,6 +22,7 @@ public class DataUtils {
 	public static Logger log = Logger.getLogger(DataUtils.class);
 	
 	public static String getDailyStr(){
+		//TODO 缓存、对比timestamp
 		Daily daily = getDaily();
 		ResultType<Daily> resultType = new ResultType<Daily>();
 		if(daily!=null){
@@ -32,6 +33,7 @@ public class DataUtils {
 			resultType.setSuccessful(false);
 			resultType.setMsg("no data");
 		}
+		
 		Gson gson = new Gson();
 		String json = gson.toJson(resultType);
 		return json;
@@ -44,7 +46,7 @@ public class DataUtils {
 				conn = ConnectionManager.getConnection();
 				stmt = conn.createStatement();
 				
-				ResultSet ret = stmt.executeQuery("select * from  daily order by serial1 limit 1");
+				ResultSet ret = stmt.executeQuery("select * from  daily order by serial1 desc limit 1");
 				Daily daily = null;
 				if(ret != null&&ret.next()){
 					daily =  new Daily();
